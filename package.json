@@ -1,0 +1,25 @@
+{
+    "name": "tinyhouse-deploy",
+    "version": "1.0.0",
+    "private": true,
+    "engines": {
+        "node": "12.6.1"
+    },
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "dependencies": {
+        "@googlemaps/google-maps-services-js": "^3.1.16",
+        "apollo-server-express": "^2.24.1",
+        "cloudinary": "^1.26.0",
+        "compression": "^1.7.4",
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "googleapis": "^74.2.0",
+        "graphql": "^15.5.0",
+        "lodash.merge": "^4.6.2",
+        "mongodb": "^3.6.9",
+        "stripe": "^8.153.0"
+    }
+}
