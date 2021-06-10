@@ -47,15 +47,22 @@ exports.Google = {
         return { user: data };
     },
     geocode: async (address) => {
-        const response = await maps.geocode({
-            params: {
-                key: process.env.G_GEOCODE_KEY,
-                address
+        try {
+            const response = await maps.geocode({
+                params: {
+                    key: process.env.G_GEOCODE_KEY,
+                    address
+                }
+            });
+            console.log(response);
+            if (response.status < 200 || response.status > 299) {
+                throw new Error("failed to geocode address");
             }
-        });
-        if (response.status < 200 || response.status > 299) {
-            throw new Error("failed to geocode address");
+            return parseAddress(response.data.results[0].address_components);
         }
-        return parseAddress(response.data.results[0].address_components);
+        catch (error) {
+            console.log(error);
+            throw new Error('failed to request geocode api');
+        }
     }
 };

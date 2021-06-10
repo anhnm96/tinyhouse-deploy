@@ -50,6 +50,14 @@ exports.bookingResolvers = {
                 // check that checkout > checkin
                 const checkInDate = new Date(checkIn);
                 const checkOutDate = new Date(checkOut);
+                const today = new Date();
+                const milisecondsPerDay = 86400000;
+                if (checkInDate.getTime() > today.getTime() + 90 * milisecondsPerDay) {
+                    throw new Error("check in date can't be more than 90 days from today");
+                }
+                if (checkOutDate.getTime() > today.getTime() + 90 * milisecondsPerDay) {
+                    throw new Error("check out date can't be more than 90 days from today");
+                }
                 if (checkOutDate < checkInDate) {
                     throw new Error("check out date can't be before check in date");
                 }

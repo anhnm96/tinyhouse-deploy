@@ -1,0 +1,1 @@
+import{a4 as s,b as a}from"./vendor.f6cb48f4.js";const e="#1890ff",o=(s,a=!0)=>`$${a?Math.round(s/100):s/100}`,r=(a,e)=>s.success({message:a,description:e,placement:"topLeft",duration:10,style:{marginTop:50}}),t=s=>a.error(s,10);export{r as a,t as d,o as f,e as i};
